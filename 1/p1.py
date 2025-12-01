@@ -1,3 +1,4 @@
+
 with open("input") as f:
     
     res = 0
