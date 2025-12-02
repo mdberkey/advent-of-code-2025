@@ -1,16 +1,13 @@
 
-def is_id_invalid(id):
-    id_str = str(id)
+def is_id_invalid(id_str):
     if len(id_str) % 2 == 1:
         return False
 
-    l = 0
-    r = len(id_str) // 2
-    while r < len(id_str) and id_str[l] == id_str[r]:
-        l += 1
-        r += 1
+    curr = seq_size = len(id_str) // 2
+    while curr < len(id_str) and id_str[curr] == id_str[curr - seq_size]:
+        curr += 1
     
-    return r == len(id_str)
+    return curr == len(id_str)
 
 with open("input") as f:
     res = 0
@@ -20,7 +17,7 @@ with open("input") as f:
         for ran in ranges:
             l, r = ran.split("-")
             for id in range(int(l), int(r) + 1):
-                if is_id_invalid(id):
+                if is_id_invalid(str(id)):
                     res += id
     
     print(res)
