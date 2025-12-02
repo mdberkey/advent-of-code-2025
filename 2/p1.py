@@ -3,8 +3,8 @@ def is_id_invalid(id_str):
     if len(id_str) % 2 == 1:
         return False
 
-    curr = seq_size = len(id_str) // 2
-    while curr < len(id_str) and id_str[curr] == id_str[curr - seq_size]:
+    curr = seq_len = len(id_str) // 2
+    while curr < len(id_str) and id_str[curr] == id_str[curr - seq_len]:
         curr += 1
     
     return curr == len(id_str)
