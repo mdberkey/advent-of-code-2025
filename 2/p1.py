@@ -1,3 +1,4 @@
+
 def is_id_invalid(id):
     id_str = str(id)
     if len(id_str) % 2 == 1:
@@ -11,9 +12,7 @@ def is_id_invalid(id):
     
     return r == len(id_str)
 
-
 with open("input") as f:
-    
     res = 0
 
     for line in f:
