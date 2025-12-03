@@ -1,20 +1,21 @@
+import math
 
 with open("input") as f:
     res = 0
 
     for line in f:
         line = line.strip()
-        line = [int(num) for num in line]
-        max_num = max(line[:-1])
+        nums = [int(num) for num in line]
+        max_num = max(nums[:-1])
+        next_max_num = -math.inf
         seen_max = False
-        next_num = min(line)
 
-        for num in line:
+        for num in nums:
             if not seen_max and num == max_num:
                 seen_max = True
             elif seen_max:
-                next_num = max(next_num, num)
+                next_max_num = max(next_max_num, num)
         
-        res += int(str(max_num) + str(next_num))
+        res += 10 * max_num + next_max_num
 
     print(res)
