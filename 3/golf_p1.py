@@ -1,0 +1,1 @@
+print(sum((lambda d:(lambda m:10*m+max(d[d.index(m)+1:]))(max(d[:-1])))(list(map(int,l.strip())))for l in open('input')))
