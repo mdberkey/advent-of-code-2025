@@ -2,15 +2,10 @@
 with open("input") as f:
     res = 0
     DIRECTIONS = [(0, 1), (1, 0), (0, -1), (-1, 0), (1, 1), (-1, -1), (1, -1), (-1, 1)]
+    grid = [list(line.strip()) for line in f]
 
-    grid = []
-    for line in f:
-        grid.append(list(line.strip()))
-
-    def is_inbounds(i, j):
-        if i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0]):
-            return False
-        return True
+    def is_out_of_bounds(i, j):
+        return i < 0 or j < 0 or i >= len(grid) or j >= len(grid[0])
 
     for i in range(len(grid)):
         for j in range(len(grid[0])):
@@ -19,7 +14,7 @@ with open("input") as f:
             count = 0
             
             for dr, dc in DIRECTIONS:
-                if is_inbounds(i + dr, j + dc) and grid[i+dr][j+dc] == "@":
+                if not is_out_of_bounds(i + dr, j + dc) and grid[i+dr][j+dc] == "@":
                     count +=1
             
             if count < 4:
