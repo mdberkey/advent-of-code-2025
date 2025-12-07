@@ -1,6 +1,5 @@
 
 with open("input") as f:
-    res = 0
     lines = [line.strip("\n") for line in f]
     max_row = max([len(row) for row in lines])
 
